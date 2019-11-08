@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.Random;
 
@@ -27,7 +28,7 @@ public class MainActivity extends AppCompatActivity { //implements View.OnClickL
     }
 
 
-    public void setTheButtons(){
+    public void setTheButtons() {
         int number = randomNumber();
         Button left = this.findViewById(R.id.LEFT1);
         left.setText(Integer.toString(number));
@@ -39,18 +40,23 @@ public class MainActivity extends AppCompatActivity { //implements View.OnClickL
     }
 
 
-    public void guessTheBiggerNumberLeft(View view){
+    public void guessTheBiggerNumberLeft(View view) {
         tv = this.findViewById(R.id.displayText);
-        if (!(num > num1) ){
+        if (!(num > num1)) {
             setTheButtons();
+            tv.setText("Congratulation");
         }
+
     }
 
-    public void guessTheBiggerNumberRight(View view){
 
+    public void guessTheBiggerNumberRight(View view) {
         tv = this.findViewById(R.id.displayText);
-        if (!(num1 > num) ){
+        if (!(num < num1)) {
             setTheButtons();
+            tv.setText("Congratulations");
         }
+
+
     }
 }
