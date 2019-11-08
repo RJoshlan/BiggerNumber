@@ -13,7 +13,8 @@ import java.util.Random;
 public class MainActivity extends AppCompatActivity { //implements View.OnClickListener {
 
     TextView tv;
-    int num, num1;
+    int number, number1;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,11 +30,11 @@ public class MainActivity extends AppCompatActivity { //implements View.OnClickL
 
 
     public void setTheButtons() {
-        int number = randomNumber();
+        number = randomNumber();
         Button left = this.findViewById(R.id.LEFT1);
         left.setText(Integer.toString(number));
 
-        int number1 = randomNumber();
+        number1 = randomNumber();
         Button right = this.findViewById(R.id.RIGHT1);
         right.setText(Integer.toString(number1));
 
@@ -42,9 +43,15 @@ public class MainActivity extends AppCompatActivity { //implements View.OnClickL
 
     public void guessTheBiggerNumberLeft(View view) {
         tv = this.findViewById(R.id.displayText);
-        if (!(num > num1)) {
+        if (number > number1) {
+            tv.setText("Congratulations");
             setTheButtons();
-            tv.setText("Congratulation");
+
+        } else {
+            tv.setText("Wrong");
+
+            setTheButtons();
+
         }
 
     }
@@ -52,11 +59,15 @@ public class MainActivity extends AppCompatActivity { //implements View.OnClickL
 
     public void guessTheBiggerNumberRight(View view) {
         tv = this.findViewById(R.id.displayText);
-        if (!(num < num1)) {
-            setTheButtons();
+        if (number1 > number) {
             tv.setText("Congratulations");
+            setTheButtons();
+
+        } else {
+            tv.setText("Wrong");
+
+            setTheButtons();
+
         }
-
-
     }
 }
