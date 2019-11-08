@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity { //implements View.OnClickL
     }
 
 
-    public void set(){
+    public void setTheButtons(){
         int number = randomNumber();
         Button left = this.findViewById(R.id.LEFT1);
         left.setText(Integer.toString(number));
@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity { //implements View.OnClickL
     public void guessTheBiggerNumberLeft(View view){
         tv = this.findViewById(R.id.displayText);
         if (!(num > num1) ){
-            set();
+            setTheButtons();
         }
     }
 
@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity { //implements View.OnClickL
 
         tv = this.findViewById(R.id.displayText);
         if (!(num1 > num) ){
-            set();
+            setTheButtons();
         }
     }
 }
